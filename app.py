@@ -23,14 +23,14 @@ PRODUCTS = [
     },
     {
         "id": 2,
-        "name": "Samsung Galaxy S24 Ultra",
+        "name": "Samsung Galaxy S26 Ultra, 512 gb, 12 gb, cámara cuádruple violeta",
         "category": "Celulares",
         "price": 1_290_000,
         "old_price": 1_550_000,
         "discount": 17,
-        "image": "https://http2.mlstatic.com/D_NQ_NP_796599-MLA71524363495_092023-O.webp",
-        "affiliate_url": "https://www.mercadolibre.com.ar/",
-        "badge": "⚡ Oferta",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_763049-MLA107401577298_032026-F.webp",
+        "affiliate_url": "https://www.mercadolibre.com.ar/samsung-galaxy-s26-ultra-512-gb-12-gb-camara-cuadruple-violeta/p/MLA65503965?pdp_filters=item_id%3AMLA3050589592&matt_tool=89488245#origin=share&sid=share&wid=MLA3050589592&action=copy",
+        "badge": "🔥 Más vendido",
         "stars": 4.7,
         "reviews": 1870,
     },
@@ -115,5 +115,7 @@ def go(product_id):
     return redirect("/")
 
 
+import os
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
