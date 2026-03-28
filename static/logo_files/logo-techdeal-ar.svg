@@ -1,0 +1,25 @@
+<svg width="680" height="320" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="680" height="320" rx="20" fill="#14141e"/>
+
+  <circle cx="110" cy="160" r="110" fill="none" stroke="#FFE600" stroke-opacity="0.10" stroke-width="1.5"/>
+  <circle cx="110" cy="160" r="80" fill="none" stroke="#FF6B00" stroke-opacity="0.13" stroke-width="1.5"/>
+  <circle cx="110" cy="160" r="50" fill="none" stroke="#FFE600" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <polygon points="110,90 95,155 115,155 98,230 130,148 108,148 128,90" fill="#FFE600" opacity="0.95"/>
+
+  <line x1="210" y1="60" x2="210" y2="260" stroke="#252535" stroke-width="1.5"/>
+
+  <text x="240" y="148" font-family="Georgia, serif" font-weight="700" font-size="72" fill="#f0f0f8" letter-spacing="-3">TECH</text>
+  <text x="240" y="218" font-family="Georgia, serif" font-weight="700" font-size="72" fill="#FFE600" letter-spacing="-3">DEAL</text>
+
+  <rect x="512" y="176" width="64" height="34" rx="8" fill="#FF6B00"/>
+  <text x="544" y="199" font-family="Georgia, serif" font-weight="700" font-size="18" fill="#ffffff" text-anchor="middle">AR</text>
+
+  <circle cx="504" cy="148" r="8" fill="#FFE600"/>
+
+  <text x="240" y="252" font-family="Georgia, serif" font-size="13" fill="#888899" letter-spacing="3">LAS MEJORES OFERTAS TECH</text>
+  <rect x="240" y="265" width="300" height="3" rx="2" fill="#FFE600" opacity="0.5"/>
+
+  <circle cx="630" cy="60" r="55" fill="none" stroke="#FFE600" stroke-opacity="0.07" stroke-width="1.5"/>
+  <circle cx="630" cy="60" r="35" fill="none" stroke="#FF6B00" stroke-opacity="0.10" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechDeal AR — Las mejores ofertas tech de Argentina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">TechDeal<span class="logo-ar">AR</span></span>
+      </a>
+      <p class="header-sub">Las mejores ofertas de tecnología en Mercado Libre</p>
+      <div class="header-badge">
+        <span class="pulse"></span> Precios actualizados hoy
+      </div>
+    </div>
+    <div class="header-ticker">
+      <div class="ticker-track">
+        🔥 iPhone 15 — 15% OFF &nbsp;|&nbsp; 🎮 PS5 Slim — STOCK LIMITADO &nbsp;|&nbsp;
+        💻 MacBook M2 — CUOTAS SIN INTERÉS &nbsp;|&nbsp; 📺 Smart TV 4K — 21% OFF &nbsp;|&nbsp;
+        🎧 AirPods Pro — ENVÍO GRATIS &nbsp;|&nbsp; 📱 Galaxy S24 — MEJOR PRECIO &nbsp;|&nbsp;
+        🔥 iPhone 15 — 15% OFF &nbsp;|&nbsp; 🎮 PS5 Slim — STOCK LIMITADO
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Tecnología al<br><em>mejor precio</em></h1>
+      <p class="hero-desc">Encontrá las ofertas más hot de electrónica en Mercado Libre. Cuotas, envío gratis y garantía oficial.</p>
+      <a href="#productos" class="cta-btn">Ver todas las ofertas ↓</a>
+    </div>
+    <div class="hero-gfx">
+      <div class="gfx-ring r1"></div>
+      <div class="gfx-ring r2"></div>
+      <div class="gfx-ring r3"></div>
+      <div class="gfx-icon">⚡</div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ── -->
+  <div class="trust-bar">
+    <div class="trust-item">✅ Compra protegida</div>
+    <div class="trust-item">🚚 Envío gratis</div>
+    <div class="trust-item">💳 Cuotas sin interés</div>
+    <div class="trust-item">🔒 Pago seguro</div>
+    <div class="trust-item">🏆 Vendedores oficiales</div>
+  </div>
+
+  <!-- ── CATEGORÍAS ── -->
+  <section class="categories-section" id="productos">
+    <div class="container">
+      <h2 class="section-title">Explorá por categoría</h2>
+      <div class="cat-filters">
+        {% for cat in categories %}
+        <a href="/?cat={{ cat }}" class="cat-pill {% if cat == active_cat %}active{% endif %}">
+          {% if cat == 'Todos' %}🛒{% elif cat == 'Celulares' %}📱{% elif cat == 'Televisores' %}📺{% elif cat == 'Computadoras' %}💻{% elif cat == 'Audio' %}🎧{% elif cat == 'Gaming' %}🎮{% endif %}
+          {{ cat }}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTOS ── -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid">
+        {% for p in products %}
+        <article class="product-card" onclick="window.location.href='/go/{{ p.id }}'">
+          <div class="card-badge">{{ p.badge }}</div>
+          <div class="card-discount">-{{ p.discount }}%</div>
+          <div class="card-img-wrap">
+            <img src="{{ p.image }}" alt="{{ p.name }}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/280x200/1a1a2e/FFE600?text=TechDeal'" />
+          </div>
+          <div class="card-body">
+            <span class="card-category">{{ p.category }}</span>
+            <h3 class="card-name">{{ p.name }}</h3>
+            <div class="card-stars">
+              {% for i in range(5) %}
+                {% if i < p.stars|int %}<span class="star filled">★</span>{% else %}<span class="star">★</span>{% endif %}
+              {% endfor %}
+              <span class="reviews">({{ "{:,}".format(p.reviews).replace(',', '.') }})</span>
+            </div>
+            <div class="card-pricing">
+              <span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>
+              <span class="price">${{ "{:,}".format(p.price).replace(',', '.') }}</span>
+            </div>
+            <div class="card-installments">
+              en 12 cuotas de ${{ "{:,.0f}".format(p.price / 12).replace(',', '.') }}
+            </div>
+            <a href="/go/{{ p.id }}" class="buy-btn" onclick="event.stopPropagation()">
+              Ver en Mercado Libre →
+            </a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-logo">⚡ TechDeal<strong>AR</strong></p>
+      <p class="footer-text">
+        Este sitio participa del programa de afiliados de Mercado Libre.<br>
+        Los precios son orientativos y pueden variar. Verificá siempre el precio final en la tienda.
+      </p>
+      <p class="footer-copy">© 2025 TechDeal AR — Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
