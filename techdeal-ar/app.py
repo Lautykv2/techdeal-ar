@@ -10,13 +10,13 @@ app = Flask(__name__)
 PRODUCTS = [
     {
         "id": 1,
-        "name": "iPhone 15 128GB",
+        "name": "Samsung Galaxy S25 Ultra 512gb 12 GB Titanium Black",
         "category": "Celulares",
         "price": 1_450_000,
         "old_price": 1_699_000,
         "discount": 15,
         "image": "https://http2.mlstatic.com/D_NQ_NP_904598-MLA71782869418_092023-O.webp",
-        "affiliate_url": "https://www.mercadolibre.com.ar/",  # ← Tu link de afiliado
+        "affiliate_url": "https://www.mercadolibre.com.ar/samsung-galaxy-s25-ultra-512gb-12-gb-titanium-black/p/MLA45513937?pdp_filters=item_id%3AMLA3112780512&matt_tool=89488245#origin=share&sid=share&wid=MLA3112780512&action=copy",  # ← Tu link de afiliado
         "badge": "🔥 Más vendido",
         "stars": 4.8,
         "reviews": 2341,
@@ -29,7 +29,7 @@ PRODUCTS = [
         "old_price": 1_550_000,
         "discount": 17,
         "image": "https://http2.mlstatic.com/D_NQ_NP_796599-MLA71524363495_092023-O.webp",
-        "affiliate_url": "https://www.mercadolibre.com.ar/",
+        "affiliate_url": "https://www.mercadolibre.com.ar/samsung-galaxy-s26-ultra-512-gb-12-gb-camara-cuadruple-violeta/p/MLA65503965?pdp_filters=item_id%3AMLA3112782456&matt_tool=89488245#origin=share&sid=share&wid=MLA3112782456&action=copy",
         "badge": "⚡ Oferta",
         "stars": 4.7,
         "reviews": 1870,
