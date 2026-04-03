@@ -71,9 +71,24 @@ def fetch_product(config):
     p.update({"affiliate_url": config["affiliate_url"], "badge": config["badge"], "category": config["category"]})
     return p
 
+FALLBACK_PRODUCTS = [
+    {"id": "F1", "name": "Samsung Galaxy S25 Ultra 512GB", "category": "Celulares",
+     "price": 1_450_000, "old_price": 1_699_000, "discount": 15,
+     "image": "https://http2.mlstatic.com/D_NQ_NP_904598-MLA71782869418_092023-O.webp",
+     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🔥 Más vendido", "stars": 4.8, "reviews": 2341},
+    {"id": "F2", "name": "MacBook Air M2 256GB", "category": "Computadoras",
+     "price": 2_100_000, "old_price": 2_450_000, "discount": 14,
+     "image": "https://http2.mlstatic.com/D_NQ_NP_715089-MLA51374425807_082022-O.webp",
+     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🍏 Apple", "stars": 4.9, "reviews": 3201},
+    {"id": "F3", "name": "PlayStation 5 Slim", "category": "Gaming",
+     "price": 980_000, "old_price": 1_150_000, "discount": 15,
+     "image": "https://http2.mlstatic.com/D_NQ_NP_939868-MLA71455484636_082023-O.webp",
+     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🎮 Gaming", "stars": 4.9, "reviews": 5870},
+]
 
 def get_all_products():
-    return [p for p in (fetch_product(c) for c in PRODUCTS_CONFIG) if p]
+    products = [p for p in (fetch_product(c) for c in PRODUCTS_CONFIG) if p]
+    return products if products else FALLBACK_PRODUCTS
 
 
 @app.route("/")
