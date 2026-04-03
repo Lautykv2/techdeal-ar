@@ -9,12 +9,12 @@ ML_CLIENT_SECRET = os.environ.get("ML_CLIENT_SECRET", "dIFBHXHWumKTL2pjwMhdbH244
 ML_API           = "https://api.mercadolibre.com"
 
 PRODUCTS_CONFIG = [
-    {"mla_id": "MLA1340233696", "category": "Celulares",     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🔥 Más vendido"},
+    {"mla_id": "MLA1340233696", "category": "Celulares",     "affiliate_url": "https://www.mercadolibre.com.ar/samsung-galaxy-s25-ultra-512gb-12-gb-titanium-black/p/MLA45513937?pdp_filters=item_id%3AMLA1655913567&matt_tool=89488245#origin=share&sid=share&wid=MLA1655913567&action=copy", "badge": "🔥 Más vendido"},
     {"mla_id": "MLA1389506995", "category": "Celulares",     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "⚡ Oferta"},
     {"mla_id": "MLA1413645196", "category": "Televisores",   "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "💎 Premium"},
-    {"mla_id": "MLA1350143419", "category": "Computadoras",  "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🍏 Apple"},
+    {"mla_id": "MLA1350143419", "category": "Computadoras",  "affiliate_url": "https://www.mercadolibre.com.ar/macbook-air-13--m4-10-core-cpu--8-core-256-gb--medianoche/up/MLAU3298378394?pdp_filters=item_id%3AMLA3064309816&matt_tool=89488245#origin=share&sid=share&wid=MLA3064309816&action=copy", "badge": "🍏 Apple"},
     {"mla_id": "MLA1362315957", "category": "Audio",         "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🎧 Top Audio"},
-    {"mla_id": "MLA1365779959", "category": "Gaming",        "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🎮 Gaming"},
+    {"mla_id": "MLA1365779959", "category": "Gaming",        "affiliate_url": "https://www.mercadolibre.com.ar/playstation-5-slim-edicion-digital-1tb/p/MLA29034307?pdp_filters=item_id%3AMLA1663093295&matt_tool=89488245#origin=share&sid=share&wid=MLA1663093295&action=copy", "badge": "🎮 Gaming"},
 ]
 
 CATEGORIES = ["Todos", "Celulares", "Televisores", "Computadoras", "Audio", "Gaming"]
