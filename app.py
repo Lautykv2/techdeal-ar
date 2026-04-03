@@ -72,18 +72,18 @@ def fetch_product(config):
     return p
 
 FALLBACK_PRODUCTS = [
-    {"id": "F1", "name": "Samsung Galaxy S25 Ultra 512GB", "category": "Celulares",
-     "price": 1_450_000, "old_price": 1_699_000, "discount": 15,
+    {"id": "F1", "name": "Samsung Galaxy S25 Ultra 512gb 12 GB Titanium Black", "category": "Celulares",
+     "price": 1_829_999, "old_price": 2_999_999, "discount": 39,
      "image": "https://http2.mlstatic.com/D_NQ_NP_904598-MLA71782869418_092023-O.webp",
-     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🔥 Más vendido", "stars": 4.8, "reviews": 2341},
-    {"id": "F2", "name": "MacBook Air M2 256GB", "category": "Computadoras",
-     "price": 2_100_000, "old_price": 2_450_000, "discount": 14,
+     "affiliate_url": "https://www.mercadolibre.com.ar/samsung-galaxy-s25-ultra-512gb-12-gb-titanium-black/p/MLA45513937?pdp_filters=item_id%3AMLA1655913567&matt_tool=89488245#origin=share&sid=share&wid=MLA1655913567&action=copy", "badge": "🔥 Mejor precio", "stars": 4.9, "reviews": 4913},
+    {"id": "F2", "name": "Macbook Air 13 M4 10 Core Cpu - 8 Core 256 Gb - Medianoche", "category": "Computadoras",
+     "price": 2_699_999, "old_price": 3_999_999, "discount": 32,
      "image": "https://http2.mlstatic.com/D_NQ_NP_715089-MLA51374425807_082022-O.webp",
-     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🍏 Apple", "stars": 4.9, "reviews": 3201},
-    {"id": "F3", "name": "PlayStation 5 Slim", "category": "Gaming",
-     "price": 980_000, "old_price": 1_150_000, "discount": 15,
+     "affiliate_url": "https://www.mercadolibre.com.ar/macbook-air-13--m4-10-core-cpu--8-core-256-gb--medianoche/up/MLAU3298378394?pdp_filters=item_id%3AMLA3064309816&matt_tool=89488245#origin=share&sid=share&wid=MLA3064309816&action=copy", "badge": "🍏 Apple", "stars": 4.9, "reviews": 12},
+    {"id": "F3", "name": "Playstation 5 Slim Edición Digital 1TB", "category": "Gaming",
+     "price": 1_344_999, "old_price": None, "discount": 0,
      "image": "https://http2.mlstatic.com/D_NQ_NP_939868-MLA71455484636_082023-O.webp",
-     "affiliate_url": "https://www.mercadolibre.com.ar/", "badge": "🎮 Gaming", "stars": 4.9, "reviews": 5870},
+     "affiliate_url": "https://www.mercadolibre.com.ar/playstation-5-slim-edicion-digital-1tb/p/MLA29034307?pdp_filters=item_id%3AMLA1663093295&matt_tool=89488245#origin=share&sid=share&wid=MLA1663093295&action=copy", "badge": "🎮 Más vendido", "stars": 4.8, "reviews": 1327},
 ]
 
 def get_all_products():
