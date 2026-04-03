@@ -79,7 +79,9 @@
         {% for p in products %}
         <article class="product-card" onclick="window.location.href='/go/{{ p.id }}'">
           <div class="card-badge">{{ p.badge }}</div>
-          <div class="card-discount">-{{ p.discount }}%</div>
+          <div class="card-discount">{% if p.discount %}
+<div class="card-discount">-{{ p.discount }}%</div>
+{% endif %}</div>
           <div class="card-img-wrap">
             <img src="{{ p.image }}" alt="{{ p.name }}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/280x200/1a1a2e/FFE600?text=TechDeal'" />
           </div>
@@ -93,7 +95,9 @@
               <span class="reviews">({{ "{:,}".format(p.reviews).replace(',', '.') }})</span>
             </div>
             <div class="card-pricing">
-              <span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>
+              <span class="old-price">{% if p.old_price %}
+<span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>
+{% endif %}</span>
               <span class="price">${{ "{:,}".format(p.price).replace(',', '.') }}</span>
             </div>
             <div class="card-installments">
