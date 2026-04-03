@@ -46,7 +46,13 @@
       <div class="gfx-ring r3"></div>
       <div class="gfx-icon">⚡</div>
     </div>
-  </section>
+  </section><div class="card-installments">
+  {% if p.installments %}
+    {{ p.installments.quantity }} cuotas de ${{ "{:,.2f}".format(p.installments.amount).replace(',', '.') }}
+  {% else %}
+    Envío gratis o cuotas fijas
+  {% endif %}
+</div>
 
   <!-- ── TRUST BAR ── -->
   <div class="trust-bar">
@@ -103,6 +109,13 @@
             <div class="card-installments">
               en 12 cuotas de ${{ "{:,.0f}".format(p.price / 12).replace(',', '.') }}
             </div>
+            <div class="card-installments">
+  {% if p.installments %}
+    {{ p.installments.quantity }} cuotas de ${{ "{:,.2f}".format(p.installments.amount).replace(',', '.') }}
+  {% else %}
+    Envío gratis o cuotas fijas
+  {% endif %}
+</div>
             <a href="/go/{{ p.id }}" class="buy-btn" onclick="event.stopPropagation()">
               Ver en Mercado Libre →
             </a>

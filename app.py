@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-ML_CLIENT_ID     = os.environ.get("ML_CLIENT_ID", "1433797948764704")
-ML_CLIENT_SECRET = os.environ.get("ML_CLIENT_SECRET", "dIFBHXHWumKTL2pjwMhdbH244uwn0tXu")
+ML_CLIENT_ID     = os.environ.get("ML_CLIENT_ID", "ML_CLIENT_ID")
+ML_CLIENT_SECRET = os.environ.get("ML_CLIENT_SECRET", "ML_CLIENT_SECRET")
 ML_API           = "https://api.mercadolibre.com"
 
 PRODUCTS_CONFIG = [
@@ -40,35 +40,66 @@ def get_token():
 
 def fetch_product(config):
     mla_id = config["mla_id"]
+    
+    # 1. Verificamos si ya está en cache
     if mla_id in _cache:
         p = _cache[mla_id].copy()
         p.update({"affiliate_url": config["affiliate_url"], "badge": config["badge"], "category": config["category"]})
         return p
+
     token = get_token()
     headers = {"Authorization": f"Bearer {token}"} if token else {}
+    
     try:
+        # 2. Consultamos el producto
         r = http.get(f"{ML_API}/items/{mla_id}", headers=headers, timeout=5)
         if r.status_code != 200:
             return None
+        
         data = r.json()
+        
+        # 3. Consultamos las reseñas (opcional pero recomendado)
         rev = http.get(f"{ML_API}/reviews/item/{mla_id}", headers=headers, timeout=5)
         rating, n_reviews = 0.0, 0
         if rev.status_code == 200:
             rd = rev.json()
             rating = round(rd.get("rating_average", 0.0), 1)
             n_reviews = rd.get("paging", {}).get("total", 0)
+
+        # 4. Procesamos los datos principales
         price = data.get("price", 0)
         old_price = data.get("original_price") or round(price * 1.15)
         discount = round((1 - price / old_price) * 100) if old_price else 0
         image = (data.get("thumbnail") or "").replace("http://", "https://").replace("-I.jpg", "-O.jpg")
-        product = {"id": mla_id, "name": data.get("title", "Producto"), "price": price,
-                   "old_price": old_price, "discount": discount, "image": image,
-                   "stars": rating, "reviews": n_reviews}
+        
+        # --- AQUÍ INTEGRAMOS EL PUNTO 3 (CUOTAS REALES) ---
+        installments = data.get("installments")
+        
+        # 5. Creamos el objeto del producto con la nueva información
+        product = {
+            "id": mla_id, 
+            "name": data.get("title", "Producto"), 
+            "price": price,
+            "old_price": old_price, 
+            "discount": discount, 
+            "image": image,
+            "stars": rating, 
+            "reviews": n_reviews,
+            "installments": installments  # <--- Agregado
+        }
+        
         _cache[mla_id] = product
+        
     except Exception:
         return None
+
+    # 6. Combinamos con la configuración local (categoría, link de afiliado, badge)
     p = product.copy()
-    p.update({"affiliate_url": config["affiliate_url"], "badge": config["badge"], "category": config["category"]})
+    p.update({
+        "affiliate_url": config["affiliate_url"], 
+        "badge": config["badge"], 
+        "category": config["category"]
+    })
     return p
 
 FALLBACK_PRODUCTS = [
