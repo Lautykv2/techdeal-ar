@@ -112,7 +112,7 @@ def go(product_id):
 
 @app.route("/health")
 def health():
-    return "OK", 200
+    return "OK", 200 #texto de prueba
 
 if __name__ == "__main__":
     app.run(debug=True)
