@@ -63,6 +63,8 @@ def get_automated_products():
             
             if r.status_code == 200:
                 data = r.json().get("results", [])[0]
+                if not data:
+                    continue
                 
                 # OBTENEMOS EL LINK DE COMISIÓN AQUÍ
                 raw_link = data.get("permalink")
