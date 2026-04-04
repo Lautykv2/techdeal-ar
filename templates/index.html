@@ -54,7 +54,10 @@
         {% for p in products %}
         <article class="product-card" onclick="window.location.href='/go/{{ p.id }}'">
           <div class="card-badge">{{ p.badge }}</div>
-          {% if p.discount %}<div class="card-discount">-{{ p.discount }}%</div>{% endif %}
+          
+          {% if p.discount %}
+          <div class="card-discount">-{{ p.discount }}%</div>
+          {% endif %}
           
           <div class="card-img-wrap">
             <img src="{{ p.image }}" alt="{{ p.name }}" class="card-img" />
@@ -65,7 +68,9 @@
             <h3 class="card-name">{{ p.name }}</h3>
             
             <div class="card-pricing">
-              {% if p.old_price %}<span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>{% endif %}
+              {% if p.old_price %}
+              <span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>
+              {% endif %}
               <span class="price">${{ "{:,}".format(p.price).replace(',', '.') }}</span>
             </div>
 
