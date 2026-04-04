@@ -11,7 +11,6 @@
 </head>
 <body>
 
-  <!-- ── HEADER ── -->
   <header class="header">
     <div class="header-inner">
       <a href="/" class="logo">
@@ -33,7 +32,6 @@
     </div>
   </header>
 
-  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-content">
       <h1 class="hero-title">Tecnología al<br><em>mejor precio</em></h1>
@@ -46,15 +44,8 @@
       <div class="gfx-ring r3"></div>
       <div class="gfx-icon">⚡</div>
     </div>
-  </section><div class="card-installments">
-  {% if p.installments %}
-    {{ p.installments.quantity }} cuotas de ${{ "{:,.2f}".format(p.installments.amount).replace(',', '.') }}
-  {% else %}
-    Envío gratis o cuotas fijas
-  {% endif %}
-</div>
+  </section>
 
-  <!-- ── TRUST BAR ── -->
   <div class="trust-bar">
     <div class="trust-item">✅ Compra protegida</div>
     <div class="trust-item">🚚 Envío gratis</div>
@@ -63,7 +54,6 @@
     <div class="trust-item">🏆 Vendedores oficiales</div>
   </div>
 
-  <!-- ── CATEGORÍAS ── -->
   <section class="categories-section" id="productos">
     <div class="container">
       <h2 class="section-title">Explorá por categoría</h2>
@@ -78,44 +68,47 @@
     </div>
   </section>
 
-  <!-- ── PRODUCTOS ── -->
   <section class="products-section">
     <div class="container">
       <div class="products-grid">
         {% for p in products %}
         <article class="product-card" onclick="window.location.href='/go/{{ p.id }}'">
           <div class="card-badge">{{ p.badge }}</div>
-          <div class="card-discount">{% if p.discount %}
-<div class="card-discount">-{{ p.discount }}%</div>
-{% endif %}</div>
+          
+          {% if p.discount %}
+          <div class="card-discount">-{{ p.discount }}%</div>
+          {% endif %}
+
           <div class="card-img-wrap">
             <img src="{{ p.image }}" alt="{{ p.name }}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/280x200/1a1a2e/FFE600?text=TechDeal'" />
           </div>
+
           <div class="card-body">
             <span class="card-category">{{ p.category }}</span>
             <h3 class="card-name">{{ p.name }}</h3>
+            
             <div class="card-stars">
               {% for i in range(5) %}
                 {% if i < p.stars|int %}<span class="star filled">★</span>{% else %}<span class="star">★</span>{% endif %}
               {% endfor %}
               <span class="reviews">({{ "{:,}".format(p.reviews).replace(',', '.') }})</span>
             </div>
+
             <div class="card-pricing">
-              <span class="old-price">{% if p.old_price %}
-<span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>
-{% endif %}</span>
+              {% if p.old_price %}
+                <span class="old-price">${{ "{:,}".format(p.old_price).replace(',', '.') }}</span>
+              {% endif %}
               <span class="price">${{ "{:,}".format(p.price).replace(',', '.') }}</span>
             </div>
+
             <div class="card-installments">
-              en 12 cuotas de ${{ "{:,.0f}".format(p.price / 12).replace(',', '.') }}
+              {% if p.installments %}
+                {{ p.installments.quantity }} cuotas de ${{ "{:,.2f}".format(p.installments.amount).replace(',', '.') }}
+              {% else %}
+                Envío gratis o cuotas fijas
+              {% endif %}
             </div>
-            <div class="card-installments">
-  {% if p.installments %}
-    {{ p.installments.quantity }} cuotas de ${{ "{:,.2f}".format(p.installments.amount).replace(',', '.') }}
-  {% else %}
-    Envío gratis o cuotas fijas
-  {% endif %}
-</div>
+
             <a href="/go/{{ p.id }}" class="buy-btn" onclick="event.stopPropagation()">
               Ver en Mercado Libre →
             </a>
@@ -126,7 +119,6 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
   <footer class="footer">
     <div class="container">
       <p class="footer-logo">⚡ TechDeal<strong>AR</strong></p>
